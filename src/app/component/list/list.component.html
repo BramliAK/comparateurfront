@@ -1,0 +1,44 @@
+
+<h2>Filters</h2>
+  <h4>Family</h4>
+
+  <select [(ngModel)]="RAM" (change)="filterExact('RAM', RAM)">
+    <option value="RAM 1 Go">RAM 1 Go</option>
+    <option value="RAM  1.5 Go">RAM  1.5 Go</option>
+    <option value="RAM : 3 Go">RAM : 3 Go</option>
+    <option value="RAM 4 Go">RAM 4 Go</option>
+    <option value="RAM 6 Go">RAM 6 Go</option>
+  </select>
+
+  <button *ngIf="RAM"
+          (click)="removeFilter('RAM')">
+
+          Remove filter
+  </button>
+
+  <h4>Weight Greater Than</h4>
+
+  <input type="text"
+         [(ngModel)]="weight"
+         (change)="filterGreaterThan('weight', weight)">
+
+  <button *ngIf="weight"
+          (click)="removeFilter('weight')">
+
+          Remove filter
+        </button>
+
+
+  
+
+  <h2>Animals</h2>
+
+  <div *ngFor="let animal of filteredSmartphone">
+    <h6>{{animal.Telephone}}</h6>
+    <img [src]="animal.image">
+    <ul>
+      <li>RAM: {{animal.RAM}}</li>
+      <li>Ecran: {{animal.Ecran}} </li>
+      
+    </ul>
+  </div>
